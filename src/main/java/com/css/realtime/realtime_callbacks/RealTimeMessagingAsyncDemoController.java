@@ -42,6 +42,12 @@ public class RealTimeMessagingAsyncDemoController {
 	}
 	
 	
+	/**
+	 * HTTP streaming 
+	 * streaming of objects
+	 * @param userId
+	 * @return
+	 */
 	@GetMapping("/streams/users/{userId}/messages")
 	public ResponseBodyEmitter handle(@PathVariable UUID userId) {
 		ResponseBodyEmitter emitter = new ResponseBodyEmitter();		
@@ -57,6 +63,12 @@ public class RealTimeMessagingAsyncDemoController {
 	}
 	
 	
+	/**
+	 * HTTP Streaming
+	 * SSE Emitter
+	 * Server Sent Events
+	 * @return
+	 */
 	@GetMapping(path="/events", produces=MediaType.TEXT_EVENT_STREAM_VALUE)
 	public SseEmitter handle() {
 		SseEmitter emitter = new SseEmitter();
