@@ -1,6 +1,7 @@
 package com.css.realtime.realtime_callbacks;
 
 import java.time.Duration;
+import java.time.ZonedDateTime;
 
 
 public class MyDateUtils {
@@ -293,4 +294,11 @@ public class MyDateUtils {
 		super();
 	}
 
+	
+	public static Duration periodNow(String submittedDateTime) {
+		ZonedDateTime theParsedDateTime =	ZonedDateTime.parse(submittedDateTime);
+	    System.out.println("@@ :: " + submittedDateTime);
+		Duration howLongD = Duration.between(ZonedDateTime.now(), theParsedDateTime);
+		return howLongD;
+	}	
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.async.DeferredResult;
@@ -23,6 +24,10 @@ public class RealTimeMessagingAsyncDemoController {
 	@Autowired
 	MyStreamingBackgroundTask<String> myStreamingBackgroundTask;
 	
+	
+
+	@Autowired
+	MyMomentsStreamingBackgroundTask myMomentsStreamingBackgroundTask;
 	
 	
 	@PostMapping("/messages")
@@ -79,6 +84,41 @@ public class RealTimeMessagingAsyncDemoController {
 		streamingThread.start();
 		return emitter;
 	}
+	
+	
+	
+	
+	/**
+	 * HTTP Streaming
+	 * SSE Emitter
+	 * Server Sent Events
+	 * @return
+	 */
+	@GetMapping(path="/streams/moments", produces=MediaType.TEXT_EVENT_STREAM_VALUE)
+	public SseEmitter handle(@RequestParam String dateTime) {
+		
+		SseEmitter emitter = new SseEmitter(86_400_000L);
+		
+
+	//RealTimeMessagingExceptionHandler.copyEmitter(emitter);	
+		try {
+			
+			System.out.println("The default timeout ::" + emitter.getTimeout());
+			
+			myMomentsStreamingBackgroundTask.setEmitter(emitter);
+			myMomentsStreamingBackgroundTask.setMoment(dateTime);
+			Thread streamingThread = new Thread(myMomentsStreamingBackgroundTask);
+			streamingThread.start();
+		} catch(Exception e) {
+			
+			System.err.println("INSIDE streaming exception : " +e);
+			
+		}
+		
+
+		return emitter;
+	}
+	
 	
 	
 
