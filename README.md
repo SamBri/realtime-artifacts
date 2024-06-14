@@ -1,4 +1,4 @@
-<h2>1.<strong>HTTP Streaming</strong> </h2>
-<br>
-<em>Server-Sent Events (SSE)</em>
+<h1>1. HTTP Streaming</h1>
+<p>Server-Sent Events, SSE</p>
+
 ![image](https://github.com/SamBri/realtime-artifacts/assets/25596561/a0f5a8b7-fd42-4bca-9b10-d673af56a810)
