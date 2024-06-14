@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "d00d6b97-cdde-40d8-996d-9fdba3b0e9f7",
+		"name": "real-time-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9941237"
+	},
+	"item": [
+		{
+			"name": "async",
+			"item": [
+				{
+					"name": "create messages Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\":\"another day\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/realtime/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"realtime",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stream messages by userId",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "stream moments",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "stream moments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/async/demo/streams/moments?dateTime={{$isoTimestamp}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"async",
+										"demo",
+										"streams",
+										"moments"
+									],
+									"query": [
+										{
+											"key": "dateTime",
+											"value": "{{$isoTimestamp}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/event-stream"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 14 Jun 2024 01:17:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "data:just now\n\ndata:1 minutes  ago \n\ndata:2 minutes  ago \n\ndata:3 minutes  ago \n\ndata:4 minutes  ago \n\ndata:5 minutes  ago \n\ndata:6 minutes  ago \n\ndata:7 minutes  ago \n\ndata:8 minutes  ago \n\ndata:9 minutes  ago \n\ndata:10 minutes  ago \n\ndata:11 minutes  ago \n\ndata:12 minutes  ago \n\ndata:13 minutes  ago \n\ndata:14 minutes  ago \n\ndata:15 minutes  ago \n\ndata:16 minutes  ago \n\ndata:17 minutes  ago \n\ndata:18 minutes  ago \n\ndata:19 minutes  ago \n\ndata:20 minutes  ago \n\ndata:21 minutes  ago \n\ndata:22 minutes  ago \n\ndata:23 minutes  ago \n\ndata:24 minutes  ago \n\ndata:25 minutes  ago \n\ndata:26 minutes  ago \n\n"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "create messages",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\":\"another day\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/realtime/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"realtime",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all messages",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get all messages by userId",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
