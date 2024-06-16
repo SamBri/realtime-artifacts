@@ -16,20 +16,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessagingResponse<T> {
-	
-	
+
 	private int code;
 	private String status;
 	private T response;
-	
+
 	@JsonProperty("responseMessage")
 	private String message;
 	private ZonedDateTime timestamp;
-	
-	
-	
-	
-	
-	
 
 }

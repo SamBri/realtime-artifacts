@@ -19,17 +19,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @ToString
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MessagePayloadDTO  {
-	
-  private String message;
-  
-  private UUID userId;
+public class MessagePayloadDTO {
 
+	private String message;
+
+	private UUID userId;
 
 }

@@ -10,26 +10,20 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter;
 
-
-
 @Component
-public class MyStreamingBackgroundTask<T> implements Runnable  {
+public class MyStreamingBackgroundTask<T> implements Runnable {
 
 	private ResponseBodyEmitter emitter;
-	
-	
+
 	private UUID userId;
-	
 
 	@Autowired
 	IMessagingService msgService;
-	
+
 	public MyStreamingBackgroundTask(ResponseBodyEmitter emitter) {
 		super();
 		this.emitter = emitter;
 	}
-
-	
 
 	public void setEmitter(ResponseBodyEmitter emitter) {
 		this.emitter = emitter;
@@ -53,18 +47,12 @@ public class MyStreamingBackgroundTask<T> implements Runnable  {
 
 	public MyStreamingBackgroundTask() {
 	}
-	
-	
-	
+
 	public MyStreamingBackgroundTask(ResponseBodyEmitter emitter, UUID userId) {
 		super();
 		this.emitter = emitter;
 		this.userId = userId;
 	}
-
-
-
-
 
 	@Override
 	public void run() {
@@ -81,7 +69,7 @@ public class MyStreamingBackgroundTask<T> implements Runnable  {
 				for (MessagePayload msg : list) {
 					emitter.send(msg.getMessage(), MediaType.APPLICATION_OCTET_STREAM);
 					System.out.println("emitted");
-					
+
 				}
 			}
 
@@ -94,13 +82,10 @@ public class MyStreamingBackgroundTask<T> implements Runnable  {
 		} catch (Exception e) {
 
 			System.out.println("Exception generated :: " + e);
-		
+
 		}
 		// In some other thread
 
 	}
 
-	
-	
-	
 }

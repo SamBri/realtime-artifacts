@@ -32,7 +32,7 @@ public class MessagePayload {
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id;
-	
+
 	@Column(name = "user_id")
 	private UUID userId;
 

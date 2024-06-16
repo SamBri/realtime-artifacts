@@ -17,40 +17,28 @@ import lombok.ToString;
 @NoArgsConstructor
 public class MyMomentsStreamingBackgroundTask implements Runnable {
 
-	
 	private ResponseBodyEmitter emitter;
-	
-	
+
 	private Object moment;
-	
-	
-	
-	
-	
-	
+
 	@Override
 	public void run() {
-		String howLong=null;
+		String howLong = null;
 		while (true) {
 
 			try {
 
-				System.out.println("@@ the moment"+moment);
-				
-				 howLong = MyDateUtils.parsePostDuration(MyDateUtils.periodNow(String.valueOf(moment)));
+				System.out.println("@@ the moment" + moment);
 
-				
+				howLong = MyDateUtils.parsePostDuration(MyDateUtils.periodNow(String.valueOf(moment)));
+
 				emitter.send(howLong);
 				Thread.sleep(60000);
 
-				
-				
-
-				
 			} catch (Exception e) {
-					
+
 				System.err.println("Task exception " + e);
-			} 
+			}
 
 		}
 	}

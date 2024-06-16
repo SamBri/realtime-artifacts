@@ -14,7 +14,7 @@ public class MessagingService implements IMessagingService {
 	private final static Logger LOGGER = LoggerFactory.getLogger(MessagingService.class);
 
 	// inject the repository here.
-	
+
 	public MessagingService(MessagesRepository messagesRepository) {
 		super();
 		this.messagesRepository = messagesRepository;
@@ -24,45 +24,35 @@ public class MessagingService implements IMessagingService {
 
 	// inject the therapist rate repo here.
 
-
-
-
 	@Override
 	public MessagePayload createMessage(MessagePayloadDTO message) {
 
-		
-		
-		
-		MessagePayload msgPayload = messagesRepository.save(new MessagePayload(null,message.getUserId(),UUID.randomUUID(),message.getMessage(),null));
-		
-		if(msgPayload != null) {
-			
+		MessagePayload msgPayload = messagesRepository
+				.save(new MessagePayload(null, message.getUserId(), UUID.randomUUID(), message.getMessage(), null));
+
+		if (msgPayload != null) {
+
 		} else {
-			
+
 		}
 
-		
 		return msgPayload;
-		
-		
-		
+
 	}
 
 	public List<MessagePayload> getAllMessages() {
-	
-	List<MessagePayload> list =	messagesRepository.findAll();
-	
-	return   list.isEmpty() ? null : list;
-		
+
+		List<MessagePayload> list = messagesRepository.findAll();
+
+		return list.isEmpty() ? null : list;
+
 	}
 
 	public List<MessagePayload> fetchMessagesByUserId(UUID userId) {
-		List<MessagePayload> list =	messagesRepository.findMessagesByUserId(userId);
-		
-		return   list.isEmpty() ? null : list;
+		List<MessagePayload> list = messagesRepository.findMessagesByUserId(userId);
+
+		return list.isEmpty() ? null : list;
 
 	}
 
-
-	
 }
