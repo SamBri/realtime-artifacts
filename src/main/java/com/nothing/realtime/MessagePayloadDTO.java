@@ -1,4 +1,4 @@
-package com.css.realtime.realtime_callbacks;
+package com.nothing.realtime;
 
 import java.time.ZonedDateTime;
 import java.util.UUID;
@@ -19,31 +19,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
-@Table(name = "messages") // A FOLDER OF messages.
 @ToString
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MessagePayload {
+public class MessagePayloadDTO {
 
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private Long id;
-
-	@Column(name = "user_id")
-	private UUID userId;
-
-	@Column(name = "message_id")
-	private UUID messageId;
-
-	@Column(name = "message")
 	private String message;
 
-	@CreationTimestamp
-	@Column(name = "date_created", nullable = false)
-	private ZonedDateTime dateCreated;
+	private UUID userId;
 
 }

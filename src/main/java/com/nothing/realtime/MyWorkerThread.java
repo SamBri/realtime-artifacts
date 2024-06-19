@@ -1,4 +1,4 @@
-package com.css.realtime.realtime_callbacks;
+package com.nothing.realtime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

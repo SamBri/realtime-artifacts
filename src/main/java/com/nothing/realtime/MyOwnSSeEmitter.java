@@ -1,4 +1,4 @@
-package com.css.realtime.realtime_callbacks;
+package com.nothing.realtime;
 
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 

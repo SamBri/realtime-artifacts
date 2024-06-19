@@ -1,4 +1,4 @@
-package com.css.realtime.realtime_callbacks;
+package com.nothing.realtime;
 
 import java.time.Duration;
 import java.time.ZonedDateTime;
